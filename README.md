@@ -54,6 +54,8 @@ docker compose exec web rails console
 docker compose exec web rails db
 ```
 
+Команда спросит пароль от пользователя бд - находится в docker-compose.yml файле, POSTGRES_PASSWORD.
+
 
 ## База данных
 
