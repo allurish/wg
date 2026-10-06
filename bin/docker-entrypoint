@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+
+cd /wg
+rm -f tmp/pids/server.pid
+
+if [ -n "${DB_HOST:-}" ]; then
+  echo "Ожидание PostgreSQL (${DB_HOST})..."
+  until pg_isready -h "$DB_HOST" -p "${DB_PORT:-5432}" -U "${DB_USERNAME:-wg}" >/dev/null 2>&1; do
+    sleep 1
+  done
+fi
+
+exec "$@"
