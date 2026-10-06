@@ -19,6 +19,8 @@ COPY . .
 
 RUN chmod +x bin/docker-entrypoint bin/rails bin/rake
 
+ENV PATH="/wg/bin:${PATH}"
+
 ENTRYPOINT ["bin/docker-entrypoint"]
 EXPOSE 3000
 CMD ["bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]
