@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shell_size: 1
+  total_contact_amount: 1
+  contact_type: false
+  contacts: 
+  connecting_cycles: 1
+  mean_time_to_failure: 1
+  storage_life: 1
+  parameters: 
+  datasheet: one
+  is_obsolete: false
+
+two:
+  shell_size: 1
+  total_contact_amount: 1
+  contact_type: false
+  contacts: 
+  connecting_cycles: 1
+  mean_time_to_failure: 1
+  storage_life: 1
+  parameters: 
+  datasheet: two
+  is_obsolete: false
