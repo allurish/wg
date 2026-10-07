@@ -1,4 +1,4 @@
-FROM ruby:3.4.11-bookworm
+FROM mirror.gcr.io/library/ruby:3.4.11-bookworm
 
 RUN apt-get update -qq \
   && apt-get install -y --no-install-recommends \
@@ -17,10 +17,12 @@ RUN bundle install
 
 COPY . .
 
-RUN chmod +x bin/docker-entrypoint bin/rails bin/rake
+RUN find bin/ -type f -exec sed -i 's/\r$//' {} +
+
+RUN chmod -R +x bin/
 
 ENV PATH="/wg/bin:${PATH}"
 
-ENTRYPOINT ["bin/docker-entrypoint"]
+ENTRYPOINT ["/wg/bin/docker-entrypoint"]
 EXPOSE 3000
 CMD ["bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]
