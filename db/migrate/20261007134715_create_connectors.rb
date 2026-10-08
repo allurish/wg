@@ -11,7 +11,7 @@ class CreateConnectors < ActiveRecord::Migration[8.1]
       t.decimal :max_operating_voltage, precision: 10, scale: 2
       t.jsonb :parameters
       t.references :datasheet, null: false, foreign_key: true
-      t.boolean :is_obsolete
+      t.boolean :is_obsolete, default: false 
 
       t.timestamps
     end
